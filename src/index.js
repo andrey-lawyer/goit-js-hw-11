@@ -1,3 +1,5 @@
+import './sass/index.scss';
+
 import { axiosSearchImages } from './axiosSearchImages';
 import { doRendering } from './doRendering';
 import Notiflix from 'notiflix';
