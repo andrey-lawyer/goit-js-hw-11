@@ -8,6 +8,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const axios = require('axios').default;
 const formEl = document.querySelector('.search-form');
+const submitFormEl = document.querySelector('.submit-form');
 const buttonLoadMore = document.querySelector('.load-more');
 const galaryEl = document.querySelector('.gallery');
 
@@ -34,6 +35,7 @@ formEl.addEventListener('submit', onClickForm);
 
 function onClickForm(event) {
   buttonLoadMore.style.display = 'none';
+  submitFormEl.textContent = 'Searh...';
   event.preventDefault();
   const inputEl = formEl.elements.searchQuery;
   nameInput = inputEl.value;
@@ -43,6 +45,7 @@ function onClickForm(event) {
     .then(data => {
       if (data.hits.length == 0) {
         buttonLoadMore.style.display = 'none';
+        submitFormEl.textContent = 'Searh';
         galaryEl.innerHTML = '';
         Notiflix.Notify.failure(
           'Sorry, there are no images matching your search query. Please try again.'
@@ -51,12 +54,14 @@ function onClickForm(event) {
       }
       console.log(data);
       buttonLoadMore.style.display = 'block';
+
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       return data.hits;
     })
     .then(Array => {
       galaryEl.innerHTML = doRendering(Array);
       toLightBox();
+      submitFormEl.textContent = 'Searh';
     });
 }
 buttonLoadMore.addEventListener('click', () => onClickLoadMore(nameInput));

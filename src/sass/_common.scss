@@ -14,11 +14,31 @@ body {
 }
 form {
   margin: 0 auto;
-  width: 260px;
+  width: 280px;
+
   margin-bottom: 20px;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  border: solid 1.5px black;
+  background-color: white;
+}
+.submit-form {
+  border: none;
+  outline: none;
+  background-color: white;
+  width: 80px;
+}
+
+.submit-form:hover {
+  color: rgb(21, 0, 255);
 }
 input {
   width: 180px;
+  border: none;
+  outline: none;
+  height: 25px;
 }
 img {
   //   display: block;
