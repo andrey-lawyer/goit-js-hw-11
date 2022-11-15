@@ -52,9 +52,8 @@ function onClickForm(event) {
         );
         return;
       }
-      console.log(data);
+      // console.log(data);
       buttonLoadMore.style.display = 'block';
-
       Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
       return data.hits;
     })
@@ -78,7 +77,7 @@ function onClickLoadMore(value) {
         );
         return;
       }
-      Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images.`);
+
       return data.hits;
     })
     .then(Array => {
